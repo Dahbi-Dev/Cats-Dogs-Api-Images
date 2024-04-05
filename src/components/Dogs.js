@@ -5,8 +5,8 @@ export default function Dogs() {
 
     useEffect(() => {
       async function fetchData() {
-        const myKey = "live_znPYb5BSloMluWIDqoPp0V3O0YRqxbc6xhbGQQIbuPp5oUVVfP9bza6tIaArcPfV";
-        const res = await fetch(`https://api.thedogapi.com/v1/images/search?limit=12&api_key=${myKey}`);
+        const dogApiKey = process.env.REACT_APP_DOG_API_KEY;
+        const res = await fetch(`https://api.thedogapi.com/v1/images/search?limit=12&api_key=${dogApiKey}`);
         const data = await res.json();
         setImages(data);
         // console.log(data)
